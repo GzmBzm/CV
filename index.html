@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gizem Baskaya | Media & Event Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Literata:wght@400;500;600&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ========================================
+   AETHER & HERBARIUM RESUME
+   Inspired by DESIGN.md
+   Dark Academia × Cottagecore
+   ATS-Friendly Layout (Single Column)
+======================================== */
+
+:root{
+    --paper:#fef9f0;
+    --paper-soft:#faf3e9;
+    --surface:#f3efe7;
+    --surface-high:#e8e3d8;
+    --surface-alt: rgba(253,195,77,.12);
+
+    --sage:#334537;
+    --sage-light:#4a5d4e;
+    --gold:#7b5800;
+    --gold-light:#fdc34d;
+    --wine:#6b2d2d;
+    --wine-soft:#8a4a4a;
+
+    --text:#1d1c16;
+    --muted:#52504a;
+    --border:#c3c8c1;
+
+    --shadow: 0 16px 32px rgba(51,69,55,.12);
+    --radius:28px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    font-size:11pt;
+}
+
+body{
+    background:
+    radial-gradient(
+        circle at top left,
+        rgba(253,195,77,.16),
+        transparent 30%
+    ),
+    radial-gradient(
+        circle at bottom right,
+        rgba(51,69,55,.1),
+        transparent 38%
+    ),
+    linear-gradient(180deg, #fff8ee 0%, #f4eee1 100%);
+
+    color:var(--text);
+    font-family: 'Literata', Georgia, "Times New Roman", serif;
+    line-height:1.75;
+    font-size: 16px;
+}
+
+/* =========================
+   PAGE LAYOUT (FORCE SINGLE COLUMN)
+========================= */
+
+.resume{
+    max-width:860px;
+    margin:auto;
+    padding:48px 24px;
+}
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    background:
+    linear-gradient(135deg, rgba(253,195,77,.16), rgba(255,255,255,.9)),
+    radial-gradient(circle at top right, rgba(123,88,0,.15), transparent 40%);
+    border:1px solid rgba(123,88,0,.16);
+    border-radius:40px;
+    padding:48px;
+    margin-bottom:16px;
+    box-shadow:var(--shadow);
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 88px;
+    height: 88px;
+    background:
+        radial-gradient(circle at 18% 18%, rgba(123,88,0,.16), transparent 24%),
+        radial-gradient(circle at 72% 20%, rgba(253,195,77,.22), transparent 18%),
+        radial-gradient(circle at 50% 72%, rgba(51,69,55,.08), transparent 42%);
+    border: 1px solid rgba(123,88,0,.12);
+    border-radius: 28px;
+    transform: rotate(-9deg);
+    filter: blur(0.5px);
+    box-shadow: 0 18px 30px rgba(123,88,0,.05);
+    pointer-events: none;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(253,195,77,.18);
+    border-radius: 40px;
+    pointer-events: none;
+}
+
+.hero-photo {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 112px;
+    height: 112px;
+    object-fit: cover;
+    border-radius: 999px;
+    border: 3px solid rgba(255,255,255,.95);
+    box-shadow: 0 12px 24px rgba(51,69,55,.18);
+}
+
+.name{
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size:48px;
+    line-height:1.05;
+    color:var(--sage);
+    letter-spacing:-1px;
+    font-weight:700;
+}
+
+.role{
+    margin-top:12px;
+    color:var(--gold);
+    font-size:13px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-weight: 600;
+}
+
+.hero-divider{
+    width:140px;
+    height:1px;
+    margin:20px 0;
+    background: linear-gradient(90deg, var(--gold), var(--wine));
+}
+
+.summary{
+    max-width:760px;
+    color:var(--wine-soft);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size:15px;
+}
+
+/* =========================
+   INLINE CONTACT BAR
+========================= */
+
+.contact-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+    padding: 14px 18px;
+    color: var(--muted);
+    font-size: 14px;
+    background: rgba(253,195,77,.08);
+    border: 1px solid rgba(123,88,0,.14);
+    border-radius: 20px;
+}
+
+.contact-bar span strong {
+    color: var(--sage);
+}
+
+.contact-bar a {
+    color: var(--sage);
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(123,88,0,.35);
+}
+
+.contact-bar a:hover {
+    color: var(--wine);
+}
+
+/* =========================
+   CARDS & SECTIONS
+========================= */
+
+.card{
+    position: relative;
+    overflow: hidden;
+    background:rgba(255,250,245,.96);
+    border:1px solid rgba(123,88,0,.12);
+    backdrop-filter:blur(16px);
+    border-radius:var(--radius);
+    padding:32px;
+    box-shadow:var(--shadow);
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(253,195,77,.08), transparent 28%);
+    pointer-events: none;
+}
+
+.card::after {
+    content: '❦';
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    font-size: 18px;
+    color: rgba(123,88,0,.4);
+    opacity: 0.85;
+    pointer-events: none;
+}
+
+.section-title{
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size:22px;
+    color:var(--wine);
+    margin-bottom:20px;
+    font-weight:600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-title::before {
+    content: '✦';
+    display: inline-block;
+    margin-right: 10px;
+    color: var(--gold-light);
+    font-size: 16px;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.section-title::after{
+    content:"";
+    display:block;
+    width:60px;
+    height:2px;
+    margin-top:6px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+}
+
+/* =========================
+   SKILLS DESIGN
+========================= */
+
+.skills-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.skills-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.skills-group strong {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 14px;
+    color: var(--wine);
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.skill{
+    padding:6px 14px;
+    border-radius:999px;
+    border:1px solid rgba(123,88,0,.14);
+    background: rgba(253,214,77,.18);
+    font-size:12px;
+    color: var(--sage);
+}
+
+.skill:nth-child(odd){
+    background: rgba(255,250,245,.95);
+}
+
+.skill:nth-child(even){
+    background: rgba(243,238,231,.95);
+}
+
+.date{
+    color:var(--muted);
+    font-size:13px;
+    font-weight: 600;
+    background: rgba(253,195,77,.18);
+    padding: 4px 12px;
+    border-radius: 999px;
+}
+
+/* =========================
+   TIMELINE & CONTENT
+========================= */
+
+.timeline-item{
+    margin-bottom:32px;
+}
+
+.timeline-item:last-child{
+    margin-bottom:0;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.job-title, .degree, .project-title{
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size:18px;
+    font-weight:700;
+    color:var(--sage);
+}
+
+.company, .institution {
+    font-family: 'EB Garamond', Georgia, serif;
+    color:var(--wine);
+    font-style:italic;
+    font-size: 15px;
+    margin: 2px 0 6px 0;
+}
+
+ul{
+    padding-left:20px;
+    margin-top: 8px;
+}
+
+li{
+    margin-bottom:8px;
+    color: var(--muted);
+    font-size: 14.5px;
+}
+
+li strong {
+    color: var(--text);
+}
+
+.education-item{
+    margin-bottom:24px;
+}
+
+.education-item:last-child{
+    margin-bottom:0;
+}
+
+.project{
+    margin-bottom:28px;
+}
+
+.project:last-child{
+    margin-bottom:0;
+}
+
+/* =========================
+   PRINT & RESPONSIVE
+========================= */
+
+@page{
+    size:A4;
+    margin:12mm;
+}
+
+@media print{
+    body{
+        background:white;
+    }
+    .resume{
+        max-width:none;
+        padding:0;
+    }
+    .card, .hero{
+        box-shadow:none;
+        backdrop-filter:none;
+        background: transparent;
+        padding: 20px 0;
+        border: none;
+    }
+    .skill {
+        border: 1px solid #666;
+        background: transparent !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .date {
+        background: none;
+        padding: 0;
+    }
+}
+
+@media(max-width:600px){
+    .name{ font-size:36px; }
+    .resume{ padding:16px; }
+    .card { padding: 20px; }
+    .item-header { flex-direction: column; }
+    .date { margin-top: 4px; }
+    .hero-photo {
+        position: static;
+        margin: 0 auto 20px;
+        width: 100px;
+        height: 100px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="resume">
+
+    <!-- HERO -->
+    <header class="hero">
+        <img class="hero-photo" src="gizem-photo.jpg" alt="Gizem Baskaya">
+        <h1 class="name">Gizem Baskaya</h1>
+        <div class="role">
+            <p>
+            Media & Event Management Student &middot; Event Coordinator &middot;
+            </p>
+            <p>Student Representative</p>
+        </div>
+        <div class="hero-divider"></div>
+        <p class="summary">
+            Media and Event Management student with hands-on experience driving successful university operations, large-scale event execution, customer engagement, and community-building initiatives. Adept at managing multi-stakeholder communication across marketing, faculty, and student bodies to transform logistical goals into highly integrated, successful public experiences.
+        </p>
+    </header>
+
+    <!-- SINGLE COLUMN LAYOUT CONTAINER -->
+    <div class="layout">
+
+        <!-- CONTACT INFO BAR -->
+        <section class="card">
+            <div class="contact-bar">
+                <span><strong>Location:</strong> Berlin, Germany (13403)</span>
+                <span><strong>Phone:</strong> +49 177 89 248 62</span>
+                <span><strong>Email:</strong> gizem.p.baskaya@gmail.com</span>
+                <span><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/gizem-baskaya/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BJ%2F%2FdNOQKQ%2BubKq7BtG5RdA%3D%3D" target="_blank" rel="noopener noreferrer">linkedin.com/in/gizem-baskaya</a></span>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section class="card">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-wrapper">
+                <div class="skills-group">
+                    <strong>Core Competencies:</strong>
+                    <div class="skills">
+                        <span class="skill">Event Planning</span> <span class="skill">Event Coordination</span>
+                        <span class="skill">Event Operations</span> <span class="skill">Project Coordination</span>
+                    </div>
+                </div>
+                <div class="skills-group">
+                    <strong>Engagement & Relations:</strong>
+                    <div class="skills">
+                        <span class="skill">Student Engagement</span> <span class="skill">Community-Building</span>
+                        <span class="skill">Stakeholder Communication</span> <span class="skill">Customer Service</span>
+                        <span class="skill">Sales</span> <span class="skill">Public Communication</span>
+                    </div>
+                </div>
+                <div class="skills-group">
+                    <strong>Tools & Systems:</strong>
+                    <div class="skills">
+                        <span class="skill">Eventbrite</span> <span class="skill">HubSpot</span> 
+                        <span class="skill">Salesforce</span> <span class="skill">Teamwork</span> 
+                        <span class="skill">Problem Solving</span> <span class="skill">Adaptability</span>
+                    </div>
+                </div>
+                <div class="skills-group">
+                    <strong>Languages:</strong>
+                    <div class="skills">
+                        <span class="skill">German (Native/Fluent)</span>
+                        <span class="skill">English (Professional)</span>
+                        <span class="skill">Turkish (Native/Bilingual)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section class="card">
+            <h2 class="section-title">Experience</h2>
+
+            <!-- JOB 1 -->
+            <div class="timeline-item">
+                <div class="item-header">
+                    <div class="job-title">Event Support & Student Advisory Assistant</div>
+                    <div class="date">Oct 2024 – Present</div>
+                </div>
+                <div class="company">Media University of Applied Sciences</div>
+                <ul>
+                    <li><strong>Accomplished</strong> successful logistical execution for diverse university functions spanning scales from 10 to 250 attendees (including Open Days, matriculation, and graduation ceremonies) <strong>measured by</strong> seamless room planning and participant administration <strong>by doing</strong> cross-departmental collaboration with marketing, faculty, study advisory services, and the AStA.</li>
+                    <li><strong>Accomplished</strong> optimized event administration and stakeholder outreach workflows <strong>measured by</strong> driving high-satisficiency benchmarks across campus-wide informational sessions <strong>by doing</strong> data-driven event management via Eventbrite and targeted university communication channels.</li>
+                </ul>
+            </div>
+
+            <!-- JOB 2 -->
+            <div class="timeline-item">
+                <div class="item-header">
+                    <div class="job-title">Sales Associate</div>
+                    <div class="date">Nov 2021 – Oct 2024</div>
+                </div>
+                <div class="company">Bijou Brigitte Modische Accessoires AG</div>
+                <ul>
+                    <li><strong>Accomplished</strong> top-tier sales consulting and performance within loyalty program driving <strong>measured by</strong> securing an average of 5 new customer membership signups per shift (outperforming the store baseline average of 3 signups) <strong>by doing</strong> proactive, relationship-focused customer service and consultative sales.</li>
+                    <li><strong>Accomplished</strong> high-quality store visual standards and efficient flow of daily store operations <strong>measured by</strong> consistent execution of daily opening/closing procedures <strong>by doing</strong> strategic merchandising, meticulous product presentation, and structured retail organization.</li>
+                </ul>
+            </div>
+
+            <!-- JOB 3 -->
+            <div class="timeline-item">
+                <div class="item-header">
+                    <div class="job-title">Student Intern</div>
+                    <div class="date">Feb 2019</div>
+                </div>
+                <div class="company">Kaufhaus des Westens (KaDeWe)</div>
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section class="card">
+            <h2 class="section-title">Education</h2>
+
+            <div class="education-item">
+                <div class="item-header">
+                    <div class="degree">B.A. Media & Event Management</div>
+                    <div class="date">Oct 2024 – Expected Mar 2028</div>
+                </div>
+                <div class="institution">Media University of Applied Sciences</div>
+            </div>
+
+            <div class="education-item">
+                <div class="item-header">
+                    <div class="degree">Japanese Studies (No Degree)</div>
+                    <div class="date">WiSe 2021 – SoSe 2022</div>
+                </div>
+                <div class="institution">Freie Universität Berlin</div>
+            </div>
+
+            <div class="education-item">
+                <div class="item-header">
+                    <div class="degree">Allgemeine Hochschulreife (Abitur)</div>
+                    <div class="date">Graduated: 2021</div>
+                </div>
+                <div class="institution">Thomas-Mann-Gymnasium &middot; Final Grade: 2.4</div>
+            </div>
+        </section>
+
+        <!-- LEADERSHIP & PROJECTS SECTION -->
+        <section class="card">
+            <h2 class="section-title">Leadership & Projects</h2>
+
+            <!-- PROJECT 1 -->
+            <div class="project">
+                <div class="item-header">
+                    <div class="project-title">AStA Member</div>
+                    <div class="date">Nov 2024 – Present</div>
+                </div>
+                <div class="institution">Media University of Applied Sciences</div>
+                <ul>
+                    <li><strong>Accomplished</strong> a major expansion of communication reach and centralized student information sharing <strong>measured by</strong> designing and launching a campus news WhatsApp community that scaled to 152 active members within its first year <strong>by doing</strong> targeted promotion, marketing events, and distributing student research requests.</li>
+                    <li><strong>Accomplished</strong> high-engagement campus community building <strong>measured by</strong> stabilizing attendance at an average of 10 students for monthly small-group gatherings and scaling up to 200 attendees for major semester parties <strong>by doing</strong> co-organization of student initiatives and direct stakeholder negotiation.</li>
+                </ul>
+            </div>
+
+            <!-- PROJECT 2 -->
+            <div class="project">
+                <div class="item-header">
+                    <div class="project-title">Erasmus+ “We Always” Project</div>
+                    <div class="date">2018 – 2020</div>
+                </div>
+            </div>
+
+            <!-- PROJECT 3 -->
+            <div class="project">
+                <div class="item-header">
+                    <div class="project-title">Epoxy Resin Worktable Project</div>
+                    <div class="date">2018 – 2020</div>
+                </div>
+                <div class="company">Project Lead & Class Coordinator</div>
+                <ul>
+                    <li><strong>Accomplished</strong> full lifecycle management and delivery of a cross-functional design manufacturing piece <strong>measured by</strong> hitting 100% of the project milestones precisely on schedule for a farewell presentation to our departing instructor <strong>by doing</strong> comprehensive material and cost budgeting research, structured class coordination, and scheduling.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- REFERENCES -->
+        <section class="card">
+            <h2 class="section-title">References</h2>
+            <p style="color: var(--muted); font-size: 14.5px;">
+                <strong>Sevinc Selci</strong><br>
+                Filialleitung – Bijou Brigitte<br>
+                Tel. 030 4151471
+            </p>
+        </section>
+
+    </div>
+</div>
+
+</body>
+</html>
